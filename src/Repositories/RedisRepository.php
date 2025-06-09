@@ -6,11 +6,14 @@ namespace Amanat\RpsCounter\Repositories\Api;
 
 use Illuminate\Redis\Connections\Connection;
 
-final readonly class RedisRepository
+final class RedisRepository
 {
+    private $redis;
+
     public function __construct(
-        private Connection $redis,
+        Connection $redis
     ) {
+        $this->redis = $redis;
     }
 
     public function getRpsCountSwitch(): bool

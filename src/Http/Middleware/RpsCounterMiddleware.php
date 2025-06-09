@@ -10,11 +10,14 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final readonly class RpsCounterMiddleware
+final class RpsCounterMiddleware
 {
+    private $redisRepository;
+
     public function __construct(
-        private RedisRepository $redisRepository,
+        RedisRepository $redisRepository
     ) {
+        $this->redisRepository = $redisRepository;
     }
 
     public function handle(Request $request, Closure $next): Response
