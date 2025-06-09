@@ -2,6 +2,7 @@
 
 namespace Amanat\RpsCounter;
 
+use Amanat\RpsCounter\Repositories\RedisRepository;
 use Illuminate\Support\ServiceProvider;
 use Amanat\RpsCounter\Http\Middleware\RpsCounterMiddleware;
 
@@ -32,8 +33,8 @@ class RpsCounterServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/rps-counter.php', 'rps-counter');
 
         // Регистрация RedisRepository
-        $this->app->singleton(\Amanat\RpsCounter\Repositories\RedisRepository::class, function () {
-            return new \Amanat\RpsCounter\Repositories\RedisRepository();
+        $this->app->singleton(RedisRepository::class, function ($app) {
+            return new RedisRepository($app['redis']->connection());
         });
     }
 }
