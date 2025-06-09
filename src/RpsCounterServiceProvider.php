@@ -17,7 +17,7 @@ class RpsCounterServiceProvider extends ServiceProvider
 
         // Публикация миграций
         $this->publishes([
-            __DIR__.'/../database/create_rps_counts_table.php' => database_path('migrations/'.now()->format('Y_m_d_His').'_create_rps_counts_table.php'),
+            __DIR__.'/../migrations/create_rps_counts_table.php' => database_path('migrations/'.now()->format('Y_m_d_His').'_create_rps_counts_table.php'),
         ], 'rps-counter-migrations');
 
         // Загрузка миграций
