@@ -32,8 +32,8 @@ class RpsCounterServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/rps-counter.php', 'rps-counter');
 
         // Регистрация RedisRepository
-        $this->app->singleton(\Amanat\RpsCounter\Repositories\Api\RedisRepository::class, function () {
-            return new \Amanat\RpsCounter\Repositories\Api\RedisRepository();
+        $this->app->singleton(\Amanat\RpsCounter\Repositories\RedisRepository::class, function () {
+            return new \Amanat\RpsCounter\Repositories\RedisRepository();
         });
     }
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Amanat\RpsCounter\Repositories\Api;
+namespace Amanat\RpsCounter\Repositories;
 
 use Illuminate\Redis\Connections\Connection;
 
