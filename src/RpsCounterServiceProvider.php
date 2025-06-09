@@ -16,7 +16,7 @@ class RpsCounterServiceProvider extends ServiceProvider
 
         // Публикация миграций
         $this->publishes([
-            __DIR__.'/../database/migrations/' => database_path('migrations'),
+            __DIR__.'/../migrations/' => database_path('migrations'),
         ], 'rps-counter-migrations');
 
         // Загрузка миграций
