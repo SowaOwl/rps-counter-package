@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Amanat\RpsCounter\Http\Middleware;
 
 use Amanat\RpsCounter\Models\RpsCount;
-use Amanat\RpsCounter\Repositories\Api\RedisRepository;
+use Amanat\RpsCounter\Repositories\RedisRepository;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
