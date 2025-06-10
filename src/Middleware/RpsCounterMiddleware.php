@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Amanat\RpsCounter\Http\Middleware;
+namespace Amanat\RpsCounter\Middleware;
 
 use Amanat\RpsCounter\Models\RpsCount;
 use Amanat\RpsCounter\Repositories\RedisRepository;

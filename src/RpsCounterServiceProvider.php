@@ -4,7 +4,7 @@ namespace Amanat\RpsCounter;
 
 use Amanat\RpsCounter\Repositories\RedisRepository;
 use Illuminate\Support\ServiceProvider;
-use Amanat\RpsCounter\Http\Middleware\RpsCounterMiddleware;
+use Amanat\RpsCounter\Middleware\RpsCounterMiddleware;
 
 class RpsCounterServiceProvider extends ServiceProvider
 {
