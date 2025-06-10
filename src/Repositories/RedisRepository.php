@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Amanat\RpsCounter\Repositories;
 
 use Illuminate\Redis\Connections\Connection;
+use Throwable;
 
 final class RedisRepository
 {
@@ -18,8 +19,16 @@ final class RedisRepository
 
     public function getRpsCountSwitch(): bool
     {
-        $response = $this->redis->get(config('rps-counter.redis_key'));
+        try {
+            $response = $this->redis->get(config('rps-counter.redis_key'));
 
-        return boolval(json_decode(json_decode($response)->setting)->value);
+            if (empty($response)) {
+                return false;
+            }
+
+            return boolval(json_decode(json_decode($response)->setting)->value);
+        } catch (Throwable $ex) {
+            return false;
+        }
     }
 }
