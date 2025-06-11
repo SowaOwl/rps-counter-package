@@ -20,7 +20,9 @@ final class RedisRepository
     public function getRpsCountSwitch(): bool
     {
         try {
-            $response = $this->redis->get(config('rps-counter.redis_key'));
+            $this->redis->client()->_prefix(config('rps-counter.redis_prefix'));
+
+            $response = $this->redis->client()->get(config('rps-counter.redis_key'));
 
             if (empty($response)) {
                 return false;
